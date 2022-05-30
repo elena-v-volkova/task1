@@ -2,47 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // модальное окно 
 
-    (function () {
-        let modalWrapper = document.createElement('div')
-        modalWrapper.classList.add('modalWrapper')
+    const btnModalClose = document.querySelector('.close-btn');
+    const modalWindow = document.querySelector('.modal-container');
 
-        let modalWindow = document.createElement('div')
-        modalWindow.classList.add('modalWindow')
-
-        let modalText = document.createElement('p')
-        modalText.classList.add('modalText')
-        modalText.innerHTML = 'Привет, мир'
-
-        let btnCross = document.createElement('span');
-        btnCross.classList.add('btnCross')
-
-        document.body.append(modalWrapper)
-        modalWrapper.append(modalWindow)
-        modalWindow.append(modalText)
-        modalWindow.append(btnCross)
-
-        modalWrapper.addEventListener('click', e => {
-            const target = e.target
-            if (!target.closest('.modalWindow') || target.closest('.btnCross')) {
-                document.body.removeChild(modalWrapper)
-            }
-        })
-
-        modalWrapper.onmouseover = (e) => {
-            if (e.target === e.currentTarget) {
-                modalWrapper.classList.add('hover');
-                btnCross.classList.add('hover');
-            }
-        };
-
-        modalWrapper.onmouseout = (e) => {
-            if (e.target === e.currentTarget) {
-                modalWrapper.classList.remove('hover');
-                btnCross.classList.remove('hover')
-            }
-        };
-
-    })();
+    modalWindow.addEventListener('click', e => {
+        if (e.target == modalWindow || e.target == btnModalClose) {
+            modalWindow.classList.add('closed')
+        }
+    });
 
     // скрытие первого блока 
 

@@ -20,7 +20,7 @@ body {
 }
 
 .block-3 {
-    border: 1px dotted #000;
+    border: 1px dashed #000;
     background-color: #ffc107;
 
 }
@@ -93,7 +93,9 @@ body {
     order: -1;
 }
 
-.modalWrapper {
+/* modal window */
+
+.modal-container {
     position: fixed;
     display: flex;
     align-items: center;
@@ -103,13 +105,15 @@ body {
     background-color: rgba(41, 41, 41, 0.6);
     top: 0;
     left: 0;
-}
-
-.modalWrapper.hover {
     cursor: pointer;
+
 }
 
-.modalWindow {
+.modal-container.closed {
+    display: none;
+}
+
+.modal-window {
     position: relative;
     height: 150px;
     width: 50%;
@@ -118,9 +122,10 @@ body {
     align-items: center;
     background-color: white;
     border-radius: 5px;
+    cursor: auto;
 }
 
-.btnCross {
+.close-btn {
     position: absolute;
     top: 16px;
     right: 20px;
@@ -131,13 +136,13 @@ body {
     transition: opacity ease 0.5s;
 }
 
-.btnCross:hover,
-.btnCross.hover {
+.close-btn:hover,
+.close-btn.hover {
     opacity: 1;
 }
 
-.btnCross::before,
-.btnCross::after {
+.close-btn::before,
+.close-btn::after {
     content: '';
     position: absolute;
     top: 10px;
@@ -146,11 +151,11 @@ body {
     background: red;
 }
 
-.btnCross::before {
+.close-btn::before {
     transform: rotate(45deg);
 }
 
-.btnCross::after {
+.close-btn::after {
     transform: rotate(-45deg);
 }
 
